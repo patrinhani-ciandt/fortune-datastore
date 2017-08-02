@@ -7,7 +7,7 @@
     "lint": "eslint lib",
     "test": "npm run lint && node test",
     "test:only": "node test",
-    "try": "node try.js"
+    "sample": "node sample.js"
   },
   "repository": {
     "type": "git",
