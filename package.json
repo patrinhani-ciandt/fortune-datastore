@@ -4,7 +4,9 @@
   "description": "Google Datastore adapter for Fortune.js",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint lib",
+    "test": "npm run lint && node test",
+    "test:only": "node test",
     "try": "node try.js"
   },
   "repository": {
@@ -24,8 +26,20 @@
   },
   "homepage": "https://github.com/patrinhani-ciandt/fortune-datastore#readme",
   "devDependencies": {
-    "fortune": "^5.2.11"
+    "eslint": "^3.19.0",
+    "fortune": "^5.2.11",
+    "tapdance": "^5.0.4"
   },
+  "eslintConfig": {
+    "extends": "boss",
+    "rules": {
+      "strict": 0
+    }
+  },
+  "files": [
+    "lib/",
+    "LICENSE"
+  ],
   "dependencies": {
     "@google-cloud/datastore": "^1.0.7"
   }
