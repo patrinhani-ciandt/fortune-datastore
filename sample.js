@@ -13,7 +13,8 @@ var fortuneSchema = {
 
 var fortuneCfg = {
   adapter: [require(__dirname + '/lib'), {
-    projectId: 'my-project-id',
+    projectId: 'fortune-datastore-unit-tests',
+    // apiEndpoint: 'http://127.0.0.1:8888',
     // keyFilename: __dirname + '/gae_key.json',
     namespace: 'fortune-adapter-test'
   }]
@@ -27,11 +28,13 @@ store.connect();
 // Promise.all([
 //   store.create('person', [ {
 //     name: 'Vinicius Patrinhani'
-//   }
-//  ])
+//   } ])
+//     .then((records) => { 
+//       console.log('DONE!', records); 
+//     })
 // ])
-// .then(function(results) { 
-//   console.log('DONE!', results); 
+// .then((records) => { 
+//   console.log('DONE!', records); 
 // })
 // .catch(console.error);
 
@@ -58,22 +61,6 @@ store.connect();
 // })
 // .catch(console.error);
 
-// TODO: Verify if this scenario works in other adapters
-// Promise.all([
-//   store.create('person', [{
-//     name: 'Vinicius Patrinhani',
-//     posts: [
-//       {
-//         text: 'New Post'
-//       }
-//     ]
-//   }])
-// ])
-//   .then(function (results) {
-//     console.log('DONE!', results);
-//   })
-//   .catch(console.error);
-
 /* FIND */
 // Promise.all([
 //   store.find('person', [ 'vJygi+Iow6Rgiug+geNF' ])
@@ -84,11 +71,7 @@ store.connect();
 // .catch(console.error);
 
 // Promise.all([
-//   store.find('person', null, {
-//     match: {
-//       name: 'Vinicius Patrinhani', // exact match or containment if array
-//     }
-//   })
+//   store.find('person')
 // ])
 // .then((results) => { 
 //   console.log('DONE!', results); 
