@@ -7,8 +7,21 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Try",
-      "program": "${workspaceRoot}/try.js"
+      "name": "Sample",
+      "program": "${workspaceRoot}/sample.js",
+      "env": {
+        "DATASTORE_DATASET": "fortune-datastore-unit-tests",
+        "DATASTORE_EMULATOR_HOST": "127.0.0.1:8888",
+        "DATASTORE_EMULATOR_HOST_PATH": "127.0.0.1:8888/datastore",
+        "DATASTORE_HOST": "http://127.0.0.1:8888",
+        "DATASTORE_PROJECT_ID": "fortune-datastore-unit-tests"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test",
+      "program": "${workspaceRoot}/test/index.js"
     }
   ]
 }
