@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/patrinhani-ciandt/fortune-datastore/badges/gpa.svg)](https://codeclimate.com/github/patrinhani-ciandt/fortune-datastore)
+[![Travis-CI](https://travis-ci.org/patrinhani-ciandt/fortune-datastore.svg?branch=master)](https://travis-ci.org/patrinhani-ciandt/fortune-datastore)
 
 # Fortune Google Cloud Datastore Adapter
 
