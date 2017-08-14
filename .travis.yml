@@ -1,0 +1,28 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - "6.10.0"
+
+cache:
+  directories:
+    - "node_modules"
+    - "$HOME/google-cloud-sdk/"
+
+env:
+  - NODE_ENV=development
+
+before_install:
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud components install beta cloud-datastore-emulator --quiet
+  - nohup gcloud beta emulators datastore start --no-legacy --project=fortune-datastore-unit-tests --host-port 127.0.0.1:8888 --consistency 1.0 --no-store-on-disk &>/dev/null &
+  - sleep 10
+
+install:
+  - npm install
+  - $(gcloud beta emulators datastore env-init)
+
+script:
+  - npm run test
