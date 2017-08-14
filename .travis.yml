@@ -25,4 +25,4 @@ after_failure:
   - docker rm gccloud-datastore-emulator
 
 node_js:
-  - "6.9.4"
+  - "6.10.0"
