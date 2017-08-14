@@ -18,7 +18,7 @@ before_install:
   - source /home/travis/google-cloud-sdk/path.bash.inc
   - gcloud components install beta cloud-datastore-emulator --quiet
   - nohup gcloud beta emulators datastore start --no-legacy --project=fortune-datastore-unit-tests --host-port 127.0.0.1:8888 --consistency 1.0 --no-store-on-disk &>/dev/null &
-  - sleep 5
+  - sleep 10
 
 install:
   - npm install
