@@ -1,0 +1,24 @@
+sudo: required
+
+language: node_js
+
+services:
+  - docker
+
+before_install:
+  - docker pull google/cloud-sdk:159.0.0
+  - docker run -p 8888:8888 --name gccloud-datastore-emulator google/cloud-sdk:159.0.0 gcloud beta emulators datastore start --no-legacy --project=fortune-datastore-unit-tests --host-port 127.0.0.1:8888 --consistency 1.0 --no-store-on-disk
+
+script:
+  - npm install
+  - npm run test
+
+after_success:
+  - docker stop gccloud-datastore-emulator
+  - docker rm gccloud-datastore-emulator
+after_failure:
+  - docker stop gccloud-datastore-emulator
+  - docker rm gccloud-datastore-emulator
+
+node_js:
+  - "6.9.4"
